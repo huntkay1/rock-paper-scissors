@@ -18,10 +18,20 @@ function computerValue() {
     }
 }
 
+//Asks the user for their move 
 function getInput() {
     let userInput = prompt("Rock, Paper, or Scissors?");
     
     return userInput.toLowerCase()
+}
+
+//Grabs the computer and user values and sends the moves to theGame to be
+//checked for a winner.
+function initiateGame() {
+    let computer = computerValue();
+    let user = getInput();
+
+    theGame(user, computer) 
 }
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
@@ -29,9 +39,8 @@ function theGame(user, computer) {
 
     if (computer == user) {
         alert("tie");
-        let computer = computerValue();
-        let user = getInput();
-        theGame(user, computer)
+        initiateGame();
+
     } else if (computer === "rock" & user === "paper") {
         alert("you win");
     } else if (computer === "paper" & user === "scissors") {
@@ -44,11 +53,9 @@ function theGame(user, computer) {
 
 }
 
+initiateGame();
 
-let computer = computerValue();
-let user = getInput();
 
-theGame(user, computer)
 
 
 
