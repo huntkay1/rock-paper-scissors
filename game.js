@@ -31,11 +31,11 @@ function initiateGame() {
     let computer = computerValue();
     let user = getInput();
 
-    theGame(user, computer) 
+    playRound(user, computer) 
 }
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
-function theGame(user, computer) {
+function playRound(user, computer) {
 
     if (computer == user) {
         alert("tie");
