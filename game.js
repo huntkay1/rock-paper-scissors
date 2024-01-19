@@ -7,7 +7,7 @@ function getRandomNumber() {
     let min = Math.ceil(1);
     let max = Math.floor(4);
     return Math.floor(Math.random() * (max-min) + 1);
-}
+};
 
 //Takes the computer's choice and translates it into rock, paper, or scissors
 function computerValue() {
@@ -19,15 +19,15 @@ function computerValue() {
         return "paper"
     } else {
         return "scissors"
-    }
-}
+    };
+};
 
 //Asks the user for their move 
 function getUserInput() {
     let userInput = prompt("Rock, Paper, or Scissors?");
     
-    return userInput.toLowerCase()
-}
+    return userInput.toLowerCase();
+};
 
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
@@ -60,9 +60,9 @@ function playRound() {
         computerScore++
         alert("Computer win that round.");
         alert("You: " + userScore + "\n" + "Computer: " + computerScore)
-    }
+    };
 
-}
+};
 
 //Plays 5 rounds of the game
 function game() {
@@ -73,15 +73,15 @@ function game() {
         alert("Round:" + roundNum)
         roundNum++
         playRound() 
-    } 
+    } ;
 
     if (userScore > computerScore) {
         alert("You win the game! :)")
     } else {
         alert("Computer wins the game. :(")
-    }
+    };
 
-}
+};
 
 game();
 
