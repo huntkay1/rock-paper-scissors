@@ -1,3 +1,7 @@
+//Initial scores for the user and the computer
+let userScore=0;
+let computerScore=0;
+
 //Picks a random number between 1 and 3 for the computer's choice
 function getRandomNumber() {
     let min = Math.ceil(1);
@@ -19,41 +23,64 @@ function computerValue() {
 }
 
 //Asks the user for their move 
-function getInput() {
+function getUserInput() {
     let userInput = prompt("Rock, Paper, or Scissors?");
     
     return userInput.toLowerCase()
 }
 
-//Grabs the computer and user values and sends the moves to theGame to be
-//checked for a winner.
-function initiateGame() {
-    let computer = computerValue();
-    let user = getInput();
-
-    playRound(user, computer) 
-}
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
-function playRound(user, computer) {
+//If there is a tie, the round starts again.
+function playRound() {
+
+    let computer = computerValue();
+    let user = getUserInput();
+
 
     if (computer == user) {
         alert("tie");
-        initiateGame();
+        playRound();
 
     } else if (computer === "rock" & user === "paper") {
+        userScore++
         alert("you win");
+        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
+        
     } else if (computer === "paper" & user === "scissors") {
+        userScore++
         alert("you win");
+        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
     } else if (computer === "scissors" & user === "rock") {
+        userScore++
         alert("you win");
+        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
     } else {
+        computerScore++
         alert("computer wins");
+        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
     }
 
 }
 
-initiateGame();
+function game() {
+
+    let roundNum = 1;
+
+    alert("Round:" + roundNum)
+    playRound()
+    
+
+    while(roundNum < 5) {
+        roundNum++
+        alert("Round:" + roundNum)
+        playRound()
+        
+    } 
+}
+
+
+game();
 
 
 
