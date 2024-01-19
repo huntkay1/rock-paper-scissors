@@ -32,6 +32,7 @@ function getUserInput() {
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
 //If there is a tie, the round starts again.
+//Adds a point to whoever the winner is.
 function playRound() {
 
     let computer = computerValue();
@@ -44,43 +45,47 @@ function playRound() {
 
     } else if (computer === "rock" & user === "paper") {
         userScore++
-        alert("you win");
-        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
+        alert("You win that round.");
+        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
         
     } else if (computer === "paper" & user === "scissors") {
         userScore++
-        alert("you win");
-        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
+        alert("You win that round.");
+        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
     } else if (computer === "scissors" & user === "rock") {
         userScore++
-        alert("you win");
-        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
+        alert("You win that round.");
+        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
     } else {
         computerScore++
-        alert("computer wins");
-        alert("You:" + userScore + "\n" + "Computer:" + computerScore)
+        alert("Computer win that round.");
+        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
     }
 
 }
 
+//Plays 5 rounds of the game
 function game() {
 
     let roundNum = 1;
 
-    alert("Round:" + roundNum)
-    playRound()
-    
-
-    while(roundNum < 5) {
-        roundNum++
+    while(roundNum < 6) {
         alert("Round:" + roundNum)
-        playRound()
-        
+        roundNum++
+        playRound() 
     } 
+
+    if (userScore > computerScore) {
+        alert("You win the game! :)")
+    } else {
+        alert("Computer wins the game. :(")
+    }
+
 }
 
-
 game();
+
+
 
 
 
