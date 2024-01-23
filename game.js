@@ -2,6 +2,12 @@
 let userScore=0;
 let computerScore=0;
 
+displayUserScore = document.createElement('p');
+displayCompScore = document.createElement('p');
+scoreContainer = document.querySelector(".score");
+scoreContainer.appendChild(displayUserScore);
+scoreContainer.appendChild(displayCompScore);
+
 //Picks a random number between 1 and 3 for the computer's choice
 function getRandomNumber() {
     let min = Math.ceil(1);
@@ -22,22 +28,12 @@ function computerValue() {
     };
 };
 
-//Asks the user for their move 
-// function getUserInput() {
-//     let userInput = prompt("Rock, Paper, or Scissors?");
-    
-//     return userInput.toLowerCase();
-// };
-
-function playerSelection() {
-
-};
-
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
 //If there is a tie, the round starts again.
 //Adds a point to whoever the winner is.
 function playRound(user) {
+
 
     let computer = computerValue();
     user = this.classList.value;
@@ -49,48 +45,35 @@ function playRound(user) {
 
     } else if (computer === "rock" & user === "paper") {
         userScore++
-        alert("You win that round.");
-        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
+        displayUserScore.textContent = "You: " + userScore;
+        displayCompScore.textContent = "Computer: " + computerScore;
+        checkWinner();
         
     } else if (computer === "paper" & user === "scissors") {
         userScore++
-        alert("You win that round.");
-        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
+        displayUserScore.textContent = "You: " + userScore;
+        displayCompScore.textContent = "Computer: " + computerScore;
+        checkWinner();
     } else if (computer === "scissors" & user === "rock") {
         userScore++
-        alert("You win that round.");
-        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
+        displayUserScore.textContent = "You: " + userScore;
+        displayCompScore.textContent = "Computer: " + computerScore;
+        checkWinner();
     } else {
         computerScore++
-        alert("Computer win that round.");
-        alert("You: " + userScore + "\n" + "Computer: " + computerScore)
+        displayUserScore.textContent = "You: " + userScore;
+        displayCompScore.textContent = "Computer: " + computerScore;
+        checkWinner();
     };
 
-    checkWinner();
 
 };
 
-// Plays 5 rounds of the game
-// function game() {
 
-//     let roundNum = 1;
 
-//     while(roundNum < 6) {
-//         alert("Round:" + roundNum)
-//         roundNum++
-//        playRound() 
-//     } ;
 
-//     if (userScore > computerScore) {
-//         alert("You win the game! :)")
-//     } else {
-//         alert("Computer wins the game. :(")
-//     };
-
-// };
-
-// game();
-
+//Check the scores of each player each round. Once a player reaches 5 points, 
+//the winner is announced and the scores are reset to 0
 function checkWinner() {
     if (userScore === 5) {
         alert("You won!");
@@ -101,9 +84,9 @@ function checkWinner() {
         userScore = 0;
         computerScore = 0;
     }
-}
+};
 
-
+//Recognizes when a move option is clicked and initiates the round
 function game() {
     let rockBtn = document.querySelector('.rock');
     let paperBtn = document.querySelector('.paper');
@@ -114,7 +97,7 @@ function game() {
     paperBtn.addEventListener('click', playRound);
     scissorsBtn.addEventListener('click', playRound);
 
-    }
+};
 
 
 game();
