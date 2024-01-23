@@ -66,6 +66,8 @@ function playRound(user) {
         alert("You: " + userScore + "\n" + "Computer: " + computerScore)
     };
 
+    checkWinner();
+
 };
 
 // Plays 5 rounds of the game
@@ -88,6 +90,18 @@ function playRound(user) {
 // };
 
 // game();
+
+function checkWinner() {
+    if (userScore === 5) {
+        alert("You won!");
+        userScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        alert("Computer won!")
+        userScore = 0;
+        computerScore = 0;
+    }
+}
 
 
 function game() {
