@@ -23,25 +23,29 @@ function computerValue() {
 };
 
 //Asks the user for their move 
-function getUserInput() {
-    let userInput = prompt("Rock, Paper, or Scissors?");
+// function getUserInput() {
+//     let userInput = prompt("Rock, Paper, or Scissors?");
     
-    return userInput.toLowerCase();
+//     return userInput.toLowerCase();
+// };
+
+function playerSelection() {
+
 };
 
 
 //Takes the user's input and the computer's choice and compares them to determine the winner
 //If there is a tie, the round starts again.
 //Adds a point to whoever the winner is.
-function playRound() {
+function playRound(user) {
 
     let computer = computerValue();
-    let user = getUserInput();
+    user = this.classList.value;
 
 
     if (computer == user) {
         alert("tie");
-        playRound();
+        game();
 
     } else if (computer === "rock" & user === "paper") {
         userScore++
@@ -64,33 +68,42 @@ function playRound() {
 
 };
 
-//Plays 5 rounds of the game
+// Plays 5 rounds of the game
+// function game() {
+
+//     let roundNum = 1;
+
+//     while(roundNum < 6) {
+//         alert("Round:" + roundNum)
+//         roundNum++
+//        playRound() 
+//     } ;
+
+//     if (userScore > computerScore) {
+//         alert("You win the game! :)")
+//     } else {
+//         alert("Computer wins the game. :(")
+//     };
+
+// };
+
+// game();
+
+
 function game() {
+    let rockBtn = document.querySelector('.rock');
+    let paperBtn = document.querySelector('.paper');
+    let scissorsBtn = document.querySelector('.scissors');
 
-    let roundNum = 1;
 
-    while(roundNum < 6) {
-        alert("Round:" + roundNum)
-        roundNum++
-        playRound() 
-    } ;
+    rockBtn.addEventListener('click', playRound);
+    paperBtn.addEventListener('click', playRound);
+    scissorsBtn.addEventListener('click', playRound);
 
-    if (userScore > computerScore) {
-        alert("You win the game! :)")
-    } else {
-        alert("Computer wins the game. :(")
-    };
+    }
 
-};
 
 game();
-
-
-
-
-
-
-
 
 
 
